@@ -1,3 +1,5 @@
+mod set_1;
+
 fn main() {
-    println!("Hello, world!");
+    set_1::test();
 }
