@@ -4,6 +4,10 @@
     Fixed XOR
     Write a function that takes two equal-length buffers and produces their XOR combination.
     If your function works properly, then when you feed it the string: 
+
+    https://en.wikipedia.org/wiki/One-time_pad
+    khan academy: https://youtu.be/FlIG3TvQCBQ
+    spy-story: https://youtu.be/S2nh2YrbweM
 */
 
 fn fixed_xor(a: &str, b: &str) -> String {
