@@ -10,20 +10,11 @@
     spy-story: https://youtu.be/S2nh2YrbweM
 */
 
+use crate::utils::hex;
+
 fn fixed_xor(a: &str, b: &str) -> String {
     let char_set = "0123456789abcdef";
     let mut result = String::new();
-
-    fn decode_hex_byte(n: u8) -> u8 {
-        let a = u8::from(n & 0b_0_111_0000) >> 4;
-        let b = u8::from(n & 0b_0_000_1111);
-        let c = match a {
-            3 => b,
-            6 => b + 9,
-            _ => 0
-        };
-        c
-    }
 
     let a_bytes = a.as_bytes();
     let b_bytes = b.as_bytes();
@@ -31,7 +22,7 @@ fn fixed_xor(a: &str, b: &str) -> String {
     let mut i = 0;
     for a_byte in a_bytes {
         let b_byte = &b_bytes[i];
-        let x_byte = u8::from(decode_hex_byte(*a_byte) ^ decode_hex_byte(*b_byte));
+        let x_byte = u8::from(hex::decode(*a_byte) ^ hex::decode(*b_byte));
         match char_set.chars().nth(x_byte.into()) {
             Some(x) => {
                 result.push(x);
