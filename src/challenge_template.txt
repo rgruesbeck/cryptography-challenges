@@ -1,0 +1,12 @@
+/*
+    https://cryptopals.com/sets/SET/challenges/PROB
+
+*/
+
+pub fn test() {
+    // assert_eq!(result, expected);
+
+    println!("\nChallenge PROB: ");
+    // println!("exp: {}", expected);
+    // println!("res: {}", result);
+}
