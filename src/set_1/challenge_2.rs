@@ -46,6 +46,8 @@ pub fn test() {
     let expected = "746865206b696420646f6e277420706c6179";
 
     let result = fixed_xor(a, b);
+
+    // https://doc.rust-lang.org/rust-by-example/testing/unit_testing.html
     assert_eq!(result, expected);
 
     println!("\nChallenge 2: Fixed XOR");
