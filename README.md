@@ -8,3 +8,8 @@ https://cryptopals.com/sets/1
 
 ## Set 2
 https://cryptopals.com/sets/2
+
+## TODO
+- add hex encode util
+- add base64 util
+- read about modulo addition: https://www.youtube.com/watch?v=g7L_r6zw4-c

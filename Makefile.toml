@@ -1,0 +1,5 @@
+
+[tasks.dev]
+script = '''
+    find src -type f | entr cargo run
+'''
