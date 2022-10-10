@@ -21,7 +21,7 @@ fn decode_hex_char(b: u8) -> u8 {
     match b & 0b0111_0000 {
         48 => b & 0b0000_1111,
         96 => (b & 0b0000_1111) + 9,
-        _ => 0
+        _ => 0,
     }
 }
 
@@ -60,7 +60,7 @@ fn xor_cypher(st: &str) -> String {
             // add char to frequency map
             match freq_map.get(&chr) {
                 Some(count) => freq_map.insert(chr, count + 1),
-                None => freq_map.insert(chr, 1)
+                None => freq_map.insert(chr, 1),
             };
 
             let chrr = (_chr ^ (key_guess as u8)) as char;
@@ -69,11 +69,9 @@ fn xor_cypher(st: &str) -> String {
             // add char to result string
             result.push(chrr);
 
-
             // reset index
             i = 0;
         }
-
     }
 
     let mut freq = Vec::from_iter(freq_map);
