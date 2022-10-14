@@ -30,3 +30,23 @@ pub fn encode_byte(byte: u8) -> String {
 
     std::str::from_utf8_mut(&mut res).unwrap().to_owned()
 }
+
+pub fn decode_string(string: &str) -> Vec<u8> {
+    let mut bytes = vec![0u8; string.len()];
+    // iterate string slice and push to decoded byte to byte vector
+    for byte in string.as_bytes() {
+        bytes.push(decode_byte(*byte));
+    }
+
+    bytes
+}
+
+pub fn encode_bytes(bytes: Vec<u8>) -> String {
+    let mut res = Vec::with_capacity(bytes.len());
+    
+    for byte in bytes {
+        res.push(encode_byte(byte));
+    }
+
+    res.concat()
+}
