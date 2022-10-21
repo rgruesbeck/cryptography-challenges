@@ -4,6 +4,10 @@
     plain
 */
 
+use std::io;
+use std::io::prelude::*;
+use std::fs::File;
+
 use crate::utils::xor;
 
 fn hamming_distance(a: &str, b: &str) -> u32 {
@@ -22,7 +26,7 @@ fn hamming_distance(a: &str, b: &str) -> u32 {
             mask = mask << 1;
         }
 
-        println!("byte: {:b}, count: {}", byte, count);
+        // println!("byte: {:b}, count: {}", byte, count);
         count
     }
 
@@ -35,6 +39,22 @@ fn hamming_distance(a: &str, b: &str) -> u32 {
     count
 }
 
+fn test_keys(a: usize, b: usize) -> io::Result<()> {
+    let mut f = File::open("src/set_1/4.txt")?;
+
+    fn test_key(size: usize) {
+        let mut buffer = [0u8; size];
+        f.read(&mut buffer)?;
+    }
+
+    for keysize in a..=b {
+
+        println!("{}, {:?}", keysize, buffer);
+    }
+
+    Ok(())
+}
+
 pub fn test() {
     // assert_eq!(result, expected);
 
@@ -44,5 +64,7 @@ pub fn test() {
     let b = "wokka wokka!!!";
     let res = hamming_distance(a, b);
     println!("hamming distance: ({}, {}) => {}", a, b, res);
-    // println!("res: {}", result);
+
+    let res = test_keys(2, 40);
+    println!("res: {:?}", res);
 }

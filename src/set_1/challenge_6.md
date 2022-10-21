@@ -24,6 +24,7 @@ for i in 1..3 {
 }
 ```
 
-
 - [creating writeups](https://youtu.be/Zw25_ySOrC0)
 - [write up tips](https://pequalsnp-team.github.io/cheatsheet/writing-good-writeup)
+
+index into string https://stackoverflow.com/questions/24542115/how-to-index-a-string-in-rust
