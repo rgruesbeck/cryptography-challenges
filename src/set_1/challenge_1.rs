@@ -27,7 +27,7 @@ fn hex_to_base64(s: &str) -> String {
         }
     }
 
-    fn process_buffer(mut result: &mut String, set: &str, buf: [u8; 3], idx: usize) {
+    fn process_buffer(result: &mut String, set: &str, buf: [u8; 3], idx: usize) {
         match idx {
             1 => {
                 let i = ((buf[0] & 0b0000_1111) << 2) + ((buf[1] & 0b0000_1100) >> 2);

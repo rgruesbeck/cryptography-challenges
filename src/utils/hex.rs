@@ -4,11 +4,25 @@
    https://en.wikipedia.org/wiki/Hexadecimal#Base16_(transfer_encoding)
 */
 
+pub fn decode(byte: u8) -> u8 {
+    return match byte & 0b1111_0000 {
+        0b0110_0000 => (byte & 0b0000_1111) + 9,
+        _ => byte & 0b0000_1111
+    }
+}
+
+pub fn encode(byte: u8) -> char {
+    let char_set = "0123456789abcdef";
+    return match char_set.chars().nth(byte.into()) {
+        Some(c) => c as char,
+        None => 0 as char,
+    };
+}
+
 pub fn decode_byte(byte: u8) -> u8 {
-    match byte & 0b0111_0000 {
-        48 => byte & 0b0000_1111,
-        96 => (byte & 0b0000_1111) + 9,
-        _ => 0,
+    return match byte & 0b1111_0000 {
+        0b0110_0000 => (byte & 0b0000_1111) + 9,
+        _ => byte & 0b0000_1111
     }
 }
 
